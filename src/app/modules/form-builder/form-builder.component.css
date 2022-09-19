@@ -1,0 +1,48 @@
+.form-builder-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-input-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 500px;
+    background-color: bisque;
+    gap: 30px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.input-element {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.checkbox-container {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.add-question-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid gray;
+    min-height: 300px;
+}
+
+.select-type-container {
+    display: flex;
+    width: 100%;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+}

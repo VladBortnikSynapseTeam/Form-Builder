@@ -1,0 +1,37 @@
+<div class="form-builder-container">
+    <div class="form-input-container">
+        <div class="input-element" *ngFor="let question of questionList; let i = index">
+            <mat-form-field *ngIf="question.type === 'text'">
+                <span>{{i+1}}. {{question.title}}</span>
+                <input matInput>
+            </mat-form-field>
+            <section *ngIf="question.type === 'checkbox'" class="checkbox-container">
+                <label>{{i+1}}. {{question.title}}</label>
+                <mat-checkbox *ngFor="let checkbox of question.value">{{checkbox}}</mat-checkbox>
+            </section>
+        </div>
+        <div class="input-element">
+            <button mat-button (click)="createNewQuestion()">Add new question</button>
+        </div>
+    </div>
+    <div class="add-question-container" *ngIf="isAddQuestion" [formGroup]="builderFormGroup">
+        <h4>Add new question</h4>
+        <span>Select question type</span>
+        <div class="select-type-container">
+            <button mat-button (click)="createQuestionType = 'checkbox'">Checkbox-list</button>
+            <button mat-button (click)="createQuestionType = 'text'">Paragraph</button>
+        </div>
+        <div class="checkbox-container" *ngIf="createQuestionType === 'checkbox'">
+            CHECKBOX
+        </div>
+        <div class="text-container" *ngIf="createQuestionType === 'text'">
+            <mat-form-field appearance="outline" [formGroup]="addTextGroup">
+                <mat-label>Type question here</mat-label>
+                <input matInput formControlName="title">
+            </mat-form-field>
+            <mat-checkbox>This field is required</mat-checkbox>
+            <button mat-raised-button color="primary" (click)="addTextQuestion()">Submit</button>
+        </div>
+
+    </div>
+</div>
